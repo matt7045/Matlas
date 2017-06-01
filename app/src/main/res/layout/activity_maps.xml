@@ -21,6 +21,7 @@
         android:padding="8dp"
         android:layout_margin="5dp"
         android:text="click_me"
-        android:textColor="#ffffff" />
+        android:textColor="#ffffff"
+        android:onClick="capture" />
 
 </RelativeLayout>
