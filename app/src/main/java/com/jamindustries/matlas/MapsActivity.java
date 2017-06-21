@@ -1,6 +1,7 @@
 package com.jamindustries.matlas;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.provider.MediaStore;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
@@ -52,6 +53,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
             startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+            Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
+            System.out.println(String.format("MapsActivity: Received a thumbnail from the camera with width = %d and height = %d", thumbnail.getWidth(), thumbnail.getHeight()));
         }
     }
 }
