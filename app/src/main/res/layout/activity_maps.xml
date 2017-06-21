@@ -20,7 +20,7 @@
         android:layout_alignParentEnd="true"
         android:padding="8dp"
         android:layout_margin="5dp"
-        android:text="click_me"
+        android:text="Capture"
         android:textColor="#ffffff"
         android:onClick="capture" />
 
